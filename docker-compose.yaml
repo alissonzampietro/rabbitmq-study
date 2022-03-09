@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  api:
+    build: 
+      context: ./
+      dockerfile: app.Dockerfile
+    ports:
+      - "${PORT}:${PORT}"
+    entrypoint: ['npm', 'start']
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+      - "15762:15762"
+      - "5762:5762"
